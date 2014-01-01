@@ -149,5 +149,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/cam_hack/bin/videoplay:system/bin/videoplay \
     $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_new.bak:system/lib/libstagefrighthw_new.bak \
     $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_old.bak:system/lib/libstagefrighthw_old.bak	
+
+# Setup Dalvik VM configs.
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+# Use common BCM stuff
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 	
 $(call inherit-product, vendor/lge/p880/p880-vendor.mk)
