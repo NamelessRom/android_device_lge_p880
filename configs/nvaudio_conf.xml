@@ -384,7 +384,6 @@
 	  </fm_playback>
   </alsa_device>
 
-
   <alsa_device name="music"
              card_id="-1"
              card_name="tegraaic326x"
@@ -583,4 +582,5 @@
       <device name="bt-sco-mic"/>
     </voice-call>
   </alsa_device>
+
 </AudioConfigs>
