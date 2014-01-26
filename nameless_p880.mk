@@ -19,7 +19,7 @@ PRODUCT_RELEASE_NAME := Optimus 4X HD
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := p880
-PRODUCT_NAME := nl_p880
+PRODUCT_NAME := nameless_p880
 PRODUCT_BRAND := LG
 PRODUCT_MODEL := LG-P880
 PRODUCT_MANUFACTURER := LGE
