@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo cm_p880-userdebug
+add_lunch_combo nl_p880-userdebug
+add_lunch_combo nl_p880-eng
