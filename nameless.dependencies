@@ -1,0 +1,8 @@
+[
+ {
+   "remote": "nameless",
+   "repository": "android_kernel_lge_p880",
+   "target_path": "kernel/lge/x3",
+   "branch": "android-4.4"
+ }
+]
