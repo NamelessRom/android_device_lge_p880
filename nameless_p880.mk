@@ -5,6 +5,9 @@ TARGET_SCREEN_WIDTH := 720
 # Release name
 PRODUCT_RELEASE_NAME := p880
 
+# APNs
+$(call inherit-product, vendor/nameless/config/apns.mk)
+
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
@@ -23,9 +26,6 @@ PRODUCT_NAME := nameless_p880
 PRODUCT_BRAND := LG
 PRODUCT_MODEL := LG-P880
 PRODUCT_MANUFACTURER := LGE
-
-# Enable Torch
-PRODUCT_PACKAGES += Torch
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=x3 BUILD_FINGERPRINT="lge/x3/p880:4.4/KRT16S/920375:user/release-keys" PRIVATE_BUILD_DESC="x3-user 4.4 KRT16S 920375 release-keys"
 
