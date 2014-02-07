@@ -6,7 +6,13 @@ TARGET_SCREEN_WIDTH := 720
 PRODUCT_RELEASE_NAME := p880
 
 # APNs
-$(call inherit-product, vendor/nameless/config/common_phone.mk)
+$(call inherit-product, vendor/nameless/config/apns.mk)
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/nameless/config/common.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lge/p880/p880.mk)
