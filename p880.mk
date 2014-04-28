@@ -150,4 +150,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_new.bak:system/lib/libstagefrighthw_new.bak \
     $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_old.bak:system/lib/libstagefrighthw_old.bak	
 	
-$(call inherit-product, vendor/lge/p880/p880-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/p880/p880-vendor.mk)
