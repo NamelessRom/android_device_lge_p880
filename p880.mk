@@ -145,10 +145,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 ## Camera blob workaround
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/cam_hack/bin/videorec:system/bin/videorec \
+    $(LOCAL_PATH)/cam_hack/bin/videorec:system/bin/videorec \	
     $(LOCAL_PATH)/cam_hack/bin/videoplay:system/bin/videoplay \
     $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_new.bak:system/lib/libstagefrighthw_new.bak \
-    $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_old.bak:system/lib/libstagefrighthw_old.bak	
+    $(LOCAL_PATH)/cam_hack/lib/libstagefrighthw_old.bak:system/lib/libstagefrighthw_new.old	
 
 # Setup Dalvik VM configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
