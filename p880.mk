@@ -130,6 +130,13 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     nfc.x3
 
+# F2FS filesystem
+PRODUCT_PACKAGES += \
+    mkfs.f2fs \
+    fsck.f2fs \
+    fibmap.f2fs \
+    f2fstat
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/init.rmnet:system/bin/init.rmnet \
     $(LOCAL_PATH)/prebuilt/init.rmnet-down:system/bin/init.rmnet-down \
