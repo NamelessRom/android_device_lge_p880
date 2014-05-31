@@ -15,6 +15,8 @@
 #
 
 LOCAL_PATH := $(call my-dir)
+ifeq ($(TARGET_DEVICE), p880)
+
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
@@ -37,3 +39,4 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE := libstagefrighthw
 
 include $(BUILD_SHARED_LIBRARY)
+endif

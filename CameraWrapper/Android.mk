@@ -1,4 +1,7 @@
 LOCAL_PATH := $(call my-dir)
+
+ifeq ($(TARGET_DEVICE), p880)
+
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
@@ -14,3 +17,4 @@ LOCAL_CFLAGS := -DHAVE_ISO
 
 include $(BUILD_SHARED_LIBRARY)
 #include $(BUILD_HEAPTRACKED_SHARED_LIBRARY)
+endif

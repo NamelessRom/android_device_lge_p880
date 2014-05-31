@@ -14,6 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(TARGET_DEVICE), p880)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := nfc.$(TARGET_BOOTLOADER_BOARD_NAME)
@@ -23,3 +24,4 @@ LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+endif
