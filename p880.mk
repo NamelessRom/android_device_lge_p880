@@ -131,9 +131,6 @@ PRODUCT_PACKAGES += \
     libnfc_jni \
     Nfc \
     Tag \
-    audio.primary.tegra \
-    audio_policy.tegra \
-    camera.tegra \
     libstagefrighthw \
     nfc.x3
 
