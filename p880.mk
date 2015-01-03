@@ -107,6 +107,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
@@ -119,14 +120,13 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
-    audio_policy.tegra.so \
-    audio.usb.default \
     audio.a2dp.default \
     audio.r_submix.default \
     libaudioutils
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.use-awesome=true
+    media.stagefright.use-awesome=true \
+    debug.hwui.render_dirty_regions=false
 
 
 # Charger mode
@@ -154,12 +154,13 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     nfc.x3
 
-# F2FS filesystem
+# Wifi
 PRODUCT_PACKAGES += \
-    mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
-    f2fstat
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # General FS tools
 PRODUCT_PACKAGES += \
@@ -170,10 +171,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/init.rmnet:system/bin/init.rmnet \
     $(LOCAL_PATH)/prebuilt/init.rmnet-down:system/bin/init.rmnet-down \
     $(LOCAL_PATH)/prebuilt/init.rawip:system/bin/init.rawip
-
-# For SELinux
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/51selinux:system/etc/init.d/51selinux
 
 # Temporarily...
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -187,10 +184,3 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 
 $(call inherit-product, vendor/lge/p880/p880-vendor.mk)
-
-# Various tweaks
-PRODUCT_PROPERTY_OVERRIDES += \
-    view.scroll_friction=1 \
-    ro.min_pointer_dur=8 \
-    ro.min_fling_velocity=8000 \
-    ro.max_fling_velocity=16000
