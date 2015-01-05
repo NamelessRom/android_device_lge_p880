@@ -1,7 +1,7 @@
 $(call inherit-product, build/target/product/locales_full.mk)
 
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+# $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # Use common BCM stuff
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
@@ -138,25 +138,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.r_submix.default \
-    com.android.future.usb.accessory \
-    libnetcmdiface
-
-# NFC packages
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    libnfc \
-    libnfc_jni \
-    Nfc \
-    Tag \
     audio.primary.tegra \
     audio_policy.tegra \
     camera.tegra \
-    libstagefrighthw \
-    nfc.x3
+    com.android.future.usb.accessory \
+    libstagefrighthw
+
+## NFC packages
+#PRODUCT_PACKAGES += \
+#    com.android.nfc_extras \
+#    libnfc \
+#    libnfc_jni \
+#    Nfc \
+#    Tag \
+#    nfc.x3
 
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
+    libnetcmdiface \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
