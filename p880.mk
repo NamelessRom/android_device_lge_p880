@@ -3,21 +3,11 @@ $(call inherit-product, build/target/product/locales_full.mk)
 # The gps config appropriate for this device
 # $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-# Use common BCM stuff
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
-
 # This device is xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 DEVICE_PACKAGE_OVERLAYS += device/lge/p880/overlay
-
-PRODUCT_TAGS += dalvik.gc.type-precise
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
-# This device is xhdpi
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 LOCAL_PATH := device/lge/p880
 
@@ -64,10 +54,10 @@ PRODUCT_COPY_FILES += \
 
 ## Audio config
 PRODUCT_COPY_FILES += \
-	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-	frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/asound.conf:system/etc/asound.conf \
@@ -119,11 +109,11 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
+    audio_policy.tegra \
     audio.a2dp.default \
     audio.r_submix.default
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.use-awesome=true \
     debug.hwui.render_dirty_regions=false
 
 
@@ -134,10 +124,6 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.r_submix.default \
-    audio.primary.tegra \
-    audio_policy.tegra \
     camera.tegra \
     com.android.future.usb.accessory \
     libstagefrighthw
