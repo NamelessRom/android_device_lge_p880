@@ -123,9 +123,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    log.tag.AudioFXCompat=DEBUG
-
-PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.use-awesome=true \
     debug.hwui.render_dirty_regions=false
 
