@@ -106,7 +106,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
@@ -121,8 +120,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
     audio.a2dp.default \
-    audio.r_submix.default \
-    libaudioutils
+    audio.r_submix.default
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    log.tag.AudioFXCompat=DEBUG
 
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.use-awesome=true \
@@ -144,14 +145,14 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libstagefrighthw
 
-## NFC packages
-#PRODUCT_PACKAGES += \
-#    com.android.nfc_extras \
-#    libnfc \
-#    libnfc_jni \
-#    Nfc \
-#    Tag \
-#    nfc.x3
+# NFC packages
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    libnfc \
+    libnfc_jni \
+    Nfc \
+    Tag \
+    nfc.x3
 
 # Wifi
 PRODUCT_PACKAGES += \
