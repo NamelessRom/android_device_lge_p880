@@ -15,7 +15,6 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
-TARGET_GCC_VERSION_EXP := 4.8
 KERNEL_TOOLCHAIN := prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin
 
 # Optimization build flags
@@ -76,14 +75,6 @@ BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 TARGET_NO_ADAPTIVE_PLAYBACK := true
 
-# Old blobs support
-#COMMON_GLOBAL_CFLAGS += -DADD_LEGACY_SET_POSITION_SYMBOL
-#BOARD_EGL_NEEDS_LEGACY_FB := true # either this or SKIP_FIRST_DEQUEUE is needed (preferably the latter)
-#BOARD_USE_MHEAP_SCREENSHOT := true
-#BOARD_EGL_SKIP_FIRST_DEQUEUE := true
-#BOARD_NEEDS_OLD_HWC_API := true
-#BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
 
@@ -114,7 +105,8 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/p880/bluetooth
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.x3
 
-COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
+COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
+TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Radio fixes
 BOARD_RIL_CLASS := ../../../device/lge/p880/ril/
@@ -122,19 +114,14 @@ BOARD_RIL_CLASS := ../../../device/lge/p880/ril/
 BOARD_CUSTOM_GRAPHICS := ../../../device/lge/p880/recovery/recovery-gfx.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/lge/p880/recovery/recovery-keys.c
 
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_BATTERY_DEVICE_NAME := battery
-
-# Skip droiddoc build to save build time
-BOARD_SKIP_ANDROID_DOC_BUILD := true
-DISABLE_DROIDDOC := true
 
 # Bootanimaion
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
-# SELinux
-ifeq ($(HAVE_SELINUX),true)
 
 BOARD_SEPOLICY_DIRS += \
     device/lge/p880/sepolicies
@@ -163,10 +150,6 @@ BOARD_SEPOLICY_UNION += \
     system_server.te \
     ueventd.te \
     vold.te
-
-endif
-
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 BOARD_HARDWARE_CLASS := device/lge/p880/cmhw/
 
