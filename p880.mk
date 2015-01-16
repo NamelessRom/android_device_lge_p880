@@ -1,7 +1,6 @@
 $(call inherit-product, build/target/product/locales_full.mk)
 
-# The gps config appropriate for this device
-# $(call inherit-product, device/common/gps/gps_eu_supl.mk)
+$(call inherit-product, build/target/product/full_base_telephony.mk)
 
 # This device is xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
@@ -80,8 +79,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     $(LOCAL_PATH)/configs/alsa/alsa.conf:system/usr/share/alsa/alsa.conf
 
-$(call inherit-product, build/target/product/full.mk)
-
 # Permission files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nvcpud.xml::system/etc/permissions/nvcpud.xml \
@@ -101,10 +98,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    $(LOCAL_PATH)/configs/nvcpud.xml::system/etc/permissions/nvcpud.xml
 
 # Audio
 PRODUCT_PACKAGES += \
