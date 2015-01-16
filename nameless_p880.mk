@@ -5,14 +5,14 @@ TARGET_SCREEN_WIDTH := 720
 # Release name
 PRODUCT_RELEASE_NAME := p880
 
-# APNs
-$(call inherit-product, vendor/nameless/config/apns.mk)
-
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/nameless/config/common.mk)
+
+# Enhanced NFC
+$(call inherit-product, vendor/nameless/config/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lge/p880/p880.mk)
@@ -26,8 +26,5 @@ PRODUCT_NAME := nameless_p880
 PRODUCT_BRAND := LG
 PRODUCT_MODEL := LG-P880
 PRODUCT_MANUFACTURER := LGE
-
-# Inherit the SIM Toolkit
-PRODUCT_PACKAGES += Stk
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=x3 BUILD_FINGERPRINT="lge/x3/p880:4.4.3/KTU84L/1148727:user/release-keys" PRIVATE_BUILD_DESC="x3-user 4.4.3 KTU84L 1148727 release-keys"
