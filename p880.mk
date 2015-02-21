@@ -145,6 +145,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/init.rmnet-down:system/bin/init.rmnet-down \
     $(LOCAL_PATH)/prebuilt/init.rawip:system/bin/init.rawip
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.apm_sim_not_pwdn=1
+
 # Temporarily...
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.boot.selinux=permissive
