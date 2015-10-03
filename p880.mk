@@ -114,7 +114,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.tegra \
     com.android.future.usb.accessory \
-    libstagefrighthw
+    libstagefrighthw \
+    power.x3
 
 # NFC packages
 PRODUCT_PACKAGES += \
